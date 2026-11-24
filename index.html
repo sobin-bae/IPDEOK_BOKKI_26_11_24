@@ -4,11 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>입덕볶이 메인</title>
-  <!-- Google Fonts: Noto Sans KR -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-  <!-- CSS 연결 -->
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -17,16 +15,14 @@
     <!-- Header -->
     <header class="header">
       <h1 class="logo">
-        <a href="index.html">
-          <img src="./images/logo.png" alt="LOGO">
-        </a>
+        <a href="index.html">입덕볶이</a>
       </h1>
       <button type="button" class="menu-btn" id="openMenuBtn" aria-label="전체 메뉴 열기">
         <i data-lucide="menu"></i>
       </button>
     </header>
 
-    <!-- Slide Side Menu (평상시 숨김, 햄버거 버튼 클릭 시 슬라이드 노출) -->
+    <!-- Slide Side Menu -->
     <div class="menu-overlay" id="menuOverlay"></div>
     <nav class="side-menu" id="sideMenu" aria-label="전체 메뉴">
       <div class="side-menu-header">
@@ -44,16 +40,19 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section" style="background-image: url('./images/hero-bg.jpg');">
+    <section class="hero-section">
+      <div class="hero-badge">IPDEOK TTEOKBOKKI</div>
+      <h2 class="hero-heading">한 입 먹으면 입덕하는<br>매콤달콤 특제 떡볶이</h2>
+      <p class="hero-sub">쫄깃한 쌀떡과 진한 양념의 완벽한 조합</p>
     </section>
 
     <!-- Section 1: 주문 및 쿠폰 버튼 -->
     <section class="section-order">
       <div class="order-btn-group">
-        <a href="sub/lists/lists.html" class="btn-order btn-full">배달 주문하기</a>
+        <a href="sub/lists/lists.html" class="btn-order btn-primary">배달 주문하기</a>
         <div class="btn-half-row">
-          <a href="#" class="btn-order btn-half">전화 주문</a>
-          <a href="#" class="btn-order btn-half">쿠폰 사용</a>
+          <a href="#" class="btn-order btn-secondary btn-half">전화 주문</a>
+          <a href="#" class="btn-order btn-accent btn-half">쿠폰 사용</a>
         </div>
       </div>
     </section>
@@ -62,86 +61,79 @@
     <section class="section-recommend">
       <h2 class="section-title">추천 메뉴</h2>
 
-      <!-- 해시태그 버튼 (3개) -->
       <div class="tag-group">
-        <button type="button" class="tag-btn active">#해시태그</button>
-        <button type="button" class="tag-btn">#해시태그</button>
-        <button type="button" class="tag-btn">#해시태그</button>
+        <button type="button" class="tag-btn active">#매콤달콤</button>
+        <button type="button" class="tag-btn">#치즈폭탄</button>
+        <button type="button" class="tag-btn">#로제크림</button>
       </div>
 
-      <!-- 추천 메뉴 컨텐츠 (3개) -->
       <div class="recommend-slider">
-        <!-- 카드 1 -->
         <div class="recommend-card">
           <span class="badge-best">BEST 1</span>
-          <h3 class="recommend-title">떡볶이 타이틀 작성</h3>
-          <a href="#" class="btn-card-order">주문하기</a>
+          <h3 class="recommend-title">입덕 오리지널 떡볶이</h3>
+          <a href="sub/detail/detail.html" class="btn-card-order">상세보기</a>
           <div class="recommend-img-box">
-            <!-- <img src="./images/menu1.jpg" alt="떡볶이 이미지"> -->
+            <span class="thumb-placeholder">ORIGINAL</span>
           </div>
         </div>
 
-        <!-- 카드 2 -->
-        <div class="recommend-card">
+        <div class="recommend-card featured">
           <span class="badge-best">BEST 2</span>
-          <h3 class="recommend-title">떡볶이 타이틀 작성</h3>
-          <a href="#" class="btn-card-order">주문하기</a>
+          <h3 class="recommend-title">눈꽃치즈 매운 떡볶이</h3>
+          <a href="sub/detail/detail.html" class="btn-card-order">상세보기</a>
           <div class="recommend-img-box">
-            <!-- <img src="./images/menu2.jpg" alt="떡볶이 이미지"> -->
+            <span class="thumb-placeholder">CHEESE</span>
           </div>
         </div>
 
-        <!-- 카드 3 -->
         <div class="recommend-card">
           <span class="badge-best">BEST 3</span>
-          <h3 class="recommend-title">떡볶이 타이틀 작성</h3>
-          <a href="#" class="btn-card-order">주문하기</a>
+          <h3 class="recommend-title">베이컨 로제 떡볶이</h3>
+          <a href="sub/detail/detail.html" class="btn-card-order">상세보기</a>
           <div class="recommend-img-box">
-            <!-- <img src="./images/menu3.jpg" alt="떡볶이 이미지"> -->
+            <span class="thumb-placeholder">ROSE</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Section 3: 메뉴 -->
+    <!-- Section 3: 메뉴 (메인에서는 결제페이지로 이동하지 않음) -->
     <section class="section-menu">
       <h2 class="section-title">메뉴</h2>
 
-      <!-- 탭 메뉴 버튼 (3개) -->
       <div class="tag-group">
-        <button type="button" class="tag-btn active">탭메뉴 1</button>
-        <button type="button" class="tag-btn">탭메뉴 2</button>
-        <button type="button" class="tag-btn">탭메뉴 3</button>
+        <button type="button" class="tag-btn active">떡볶이</button>
+        <button type="button" class="tag-btn">튀김·사이드</button>
+        <button type="button" class="tag-btn">세트메뉴</button>
       </div>
 
-      <!-- 메뉴 그리드 리스트 -->
       <div class="menu-grid">
         <div class="menu-item">
           <div class="menu-thumb">
-            <!-- <img src="./images/menu-item1.jpg" alt="메뉴 이미지"> -->
+            <span class="thumb-placeholder">MENU 01</span>
           </div>
-          <p class="menu-name">떡볶이 타이틀 작성</p>
+          <p class="menu-name">입덕 오리지널 떡볶이</p>
         </div>
 
         <div class="menu-item">
           <div class="menu-thumb">
-            <!-- <img src="./images/menu-item2.jpg" alt="메뉴 이미지"> -->
+            <span class="thumb-placeholder">MENU 02</span>
           </div>
-          <p class="menu-name">떡볶이 타이틀 작성</p>
+          <p class="menu-name">불닭맛 엽기 떡볶이</p>
         </div>
 
         <div class="menu-item">
           <div class="menu-thumb">
-            <!-- <img src="./images/menu-item3.jpg" alt="메뉴 이미지"> -->
+            <span class="thumb-placeholder">MENU 03</span>
           </div>
-          <p class="menu-name">떡볶이 타이틀 작성</p>
+          <p class="menu-name">바삭 모둠 튀김</p>
         </div>
 
         <div class="menu-item">
           <div class="menu-thumb">
-            <!-- <img src="./images/menu-item4.jpg" alt="메뉴 이미지"> -->
+            <span class="thumb-placeholder">MENU 04</span>
           </div>
-          <p class="menu-name">떡볶이 타이틀 작성</p>
+          <p class="menu-name">계란찜 &amp; 주먹밥</p>
         </div>
       </div>
     </section>
@@ -151,23 +143,21 @@
       <h2 class="section-title">이벤트</h2>
       <p class="section-desc">매달 추가되는 입덕볶이의 이벤트를 만나보세요!</p>
 
-      <!-- 이벤트 탭 메뉴 (위·아래 구분선 간격 통일) -->
       <div class="event-tabs">
         <button type="button" class="event-tab-btn active">진행중</button>
         <button type="button" class="event-tab-btn">종료</button>
         <button type="button" class="event-tab-btn">당첨자</button>
       </div>
 
-      <!-- 이벤트 카드 프레임 -->
       <div class="event-content">
         <article class="event-card">
           <div class="event-thumb">
-            <!-- <img src="./images/event1.jpg" alt="이벤트 썸네일"> -->
+            <span class="event-badge-text">SPECIAL EVENT</span>
           </div>
           <div class="event-info">
             <span class="event-sub">[할인중 이벤트]</span>
-            <h3 class="event-title">매달 추가되는 입덕볶이의 이벤트 내역입니다<br>자세한 내용은 이벤...</h3>
-            <span class="event-date">2026.11.23~2026.12.31</span>
+            <h3 class="event-title">첫 주문 2,000원 할인 쿠폰 증정 이벤트</h3>
+            <span class="event-date">2026.11.01 ~ 2026.12.31</span>
           </div>
         </article>
       </div>
@@ -175,7 +165,6 @@
 
   </div>
 
-  <!-- Lucide Icons CDN -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <script>
     lucide.createIcons();

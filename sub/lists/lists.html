@@ -1,12 +1,130 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/lists.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메뉴 리스트 페이지</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/lists.css">
 </head>
 <body>
-    
+  <div class="mobile-container">
+
+    <!-- Header -->
+    <header class="header">
+      <h1 class="logo">
+        <a href="../../index.html">입덕볶이</a>
+      </h1>
+      <button type="button" class="menu-btn" id="openMenuBtn" aria-label="전체 메뉴 열기">
+        <i data-lucide="menu"></i>
+      </button>
+    </header>
+
+    <!-- Slide Side Menu -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <nav class="side-menu" id="sideMenu" aria-label="전체 메뉴">
+      <div class="side-menu-header">
+        <span class="side-menu-title">Menu</span>
+        <button type="button" class="menu-close-btn" id="closeMenuBtn" aria-label="메뉴 닫기">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <ul class="side-menu-list">
+        <li><a href="sub/lists/lists.html">리스트페이지</a></li>
+        <li><a href="../detail/detail.html">상세페이지</a></li>
+        <li><a href="../payment/payment.html">결제페이지</a></li>
+        <li><a href="../payment_finish/payment_finish.html">결제 완료</a></li>
+      </ul>
+    </nav>
+
+    <!-- 메뉴 그리드 영역 (클릭 시 결제페이지 이동) -->
+    <section class="list-grid-section">
+      <div class="list-grid">
+        <a href="sub/payment/payment.html" class="list-card">
+          <div class="list-card-thumb">
+            <span class="list-thumb-label">ORIGINAL</span>
+          </div>
+          <p class="list-card-title">입덕 오리지널 떡볶이</p>
+        </a>
+
+        <a href="sub/payment/payment.html" class="list-card">
+          <div class="list-card-thumb">
+            <span class="list-thumb-label">CHEESE</span>
+          </div>
+          <p class="list-card-title">눈꽃치즈 매운 떡볶이</p>
+        </a>
+
+        <a href="sub/payment/payment.html" class="list-card">
+          <div class="list-card-thumb">
+            <span class="list-thumb-label">ROSE</span>
+          </div>
+          <p class="list-card-title">베이컨 로제 떡볶이</p>
+        </a>
+
+        <a href="sub/payment/payment.html" class="list-card">
+          <div class="list-card-thumb">
+            <span class="list-thumb-label">FRIED</span>
+          </div>
+          <p class="list-card-title">바삭 모둠 튀김 세트</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- 해시태그 필터 버튼 영역 -->
+    <section class="list-hashtag-section">
+      <div class="hashtag-row-two">
+        <button type="button" class="hashtag-pill">#매콤달콤</button>
+        <button type="button" class="hashtag-pill">#치즈가득</button>
+      </div>
+      <div class="hashtag-stack">
+        <button type="button" class="hashtag-pill">#꾸덕로제</button>
+        <button type="button" class="hashtag-pill">#혼밥추천</button>
+        <button type="button" class="hashtag-pill">#바삭튀김조합</button>
+      </div>
+    </section>
+
+    <!-- 오늘 이 메뉴 어때요 ? 영역 (클릭 시 결제페이지 이동) -->
+    <section class="today-menu-section">
+      <h2 class="today-menu-heading">오늘 이 메뉴 어때요 ?</h2>
+
+      <a href="sub/payment/payment.html" class="today-menu-thumb">
+        <span class="today-badge">TODAY PICK · 바로 주문하기</span>
+      </a>
+
+      <h3 class="today-menu-subtitle">입덕 유발 매콤달콤<br>특제 국물 떡볶이</h3>
+
+      <p class="today-menu-desc">
+        쌀떡의 쫀득함과 어묵의 감칠맛을 살린 입덕볶이 시그니처 메뉴입니다.<br>
+        매운맛 단계 조절과 치즈·튀김 토핑 추가로 나만의 조합을 완성해 보세요.
+      </p>
+    </section>
+
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+
+    const openMenuBtn = document.getElementById('openMenuBtn');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+      sideMenu.classList.add('active');
+      menuOverlay.classList.add('active');
+    }
+
+    function closeMenu() {
+      sideMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+    }
+
+    openMenuBtn.addEventListener('click', openMenu);
+    closeMenuBtn.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+  </script>
 </body>
 </html>

@@ -1,12 +1,113 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="payment_finish.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>결제 완료 페이지</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/payment_finish.css">
 </head>
 <body>
-    
+  <div class="mobile-container">
+
+    <!-- Header -->
+    <header class="header">
+      <h1 class="logo">
+        <a href="../../index.html">입덕볶이</a>
+      </h1>
+      <button type="button" class="menu-btn" id="openMenuBtn" aria-label="전체 메뉴 열기">
+        <i data-lucide="menu"></i>
+      </button>
+    </header>
+
+    <!-- Slide Side Menu -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <nav class="side-menu" id="sideMenu" aria-label="전체 메뉴">
+      <div class="side-menu-header">
+        <span class="side-menu-title">Menu</span>
+        <button type="button" class="menu-close-btn" id="closeMenuBtn" aria-label="메뉴 닫기">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <ul class="side-menu-list">
+        <li><a href="../lists/lists.html">리스트페이지</a></li>
+        <li><a href="../detail/detail.html">상세페이지</a></li>
+        <li><a href="../payment/payment.html">결제페이지</a></li>
+        <li><a href="sub/payment_finish/payment_finish.html">결제 완료</a></li>
+      </ul>
+    </nav>
+
+    <!-- 상단 배경 및 영수증 카드 영역 -->
+    <section class="complete-top-area">
+      <div class="receipt-card">
+        <div class="receipt-head">
+          <div class="check-circle">
+            <i data-lucide="check"></i>
+          </div>
+          <h1 class="complete-title">결제 요청 처리완료</h1>
+        </div>
+
+        <div class="receipt-upper">
+          <div class="receipt-row">
+            <span class="receipt-label">가맹점</span>
+            <span class="receipt-value">입덕볶이</span>
+          </div>
+          <div class="receipt-row">
+            <span class="receipt-label">결제금액</span>
+            <span class="receipt-value">13,000원</span>
+          </div>
+        </div>
+
+        <div class="receipt-lower">
+          <div class="receipt-row">
+            <span class="receipt-label">결제일시</span>
+            <span class="receipt-value">2026.11.24 16:22</span>
+          </div>
+          <div class="receipt-row">
+            <span class="receipt-label">결제카드</span>
+            <span class="receipt-value">신용/체크 카드</span>
+          </div>
+          <div class="receipt-row">
+            <span class="receipt-label">카드번호</span>
+            <span class="receipt-value">9410-****-****-2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 하단 안내 및 확인 버튼 영역 -->
+    <section class="complete-bottom-area">
+      <p class="notice-text">* 확인 안내사항 안내: 주문 접수 후 조리가 시작되면 취소 및 메뉴 변경이 제한될 수 있습니다.</p>
+      <div class="notice-divider"></div>
+      <a href="../../index.html" class="btn-confirm">확인</a>
+    </section>
+
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+
+    const openMenuBtn = document.getElementById('openMenuBtn');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+      sideMenu.classList.add('active');
+      menuOverlay.classList.add('active');
+    }
+
+    function closeMenu() {
+      sideMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+    }
+
+    openMenuBtn.addEventListener('click', openMenu);
+    closeMenuBtn.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+  </script>
 </body>
 </html>

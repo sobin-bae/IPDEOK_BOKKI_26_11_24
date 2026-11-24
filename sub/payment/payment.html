@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>결제 페이지</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/payment.css">
+</head>
+<body>
+  <div class="mobile-container">
+
+    <!-- Header -->
+    <header class="header">
+      <h1 class="logo">
+        <a href="../../index.html">입덕볶이</a>
+      </h1>
+      <button type="button" class="menu-btn" id="openMenuBtn" aria-label="전체 메뉴 열기">
+        <i data-lucide="menu"></i>
+      </button>
+    </header>
+
+    <!-- Slide Side Menu -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <nav class="side-menu" id="sideMenu" aria-label="전체 메뉴">
+      <div class="side-menu-header">
+        <span class="side-menu-title">Menu</span>
+        <button type="button" class="menu-close-btn" id="closeMenuBtn" aria-label="메뉴 닫기">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <ul class="side-menu-list">
+         <li><a href="../lists/lists.html">리스트페이지</a></li>
+        <li><a href="../detail/detail.html">상세페이지</a></li>
+        <li><a href="sub/payment/payment.html">결제페이지</a></li>
+        <li><a href="../payment_finish/payment_finish.html">결제 완료</a></li>
+      </ul>
+    </nav>
+
+    <!-- 결제 본문 -->
+    <main class="payment-main">
+
+      <!-- 매장 및 메뉴 정보 카드 -->
+      <section class="pay-card store-card">
+        <div class="store-name-bar">입덕볶이 매장_00점</div>
+        <div class="store-menu-row">
+          <div class="store-menu-thumb">
+            <span class="pay-thumb-label">DDEOKBOKKI</span>
+          </div>
+          <div class="store-menu-meta">
+            <p class="store-menu-name">눈꽃치즈 매운 떡볶이</p>
+            <p class="store-menu-price">15,000원</p>
+          </div>
+        </div>
+        <p class="store-menu-desc">매콤한 특제 양념 떡볶이 위에 고소한 모짜렐라 치즈를 듬뿍 올린 메뉴</p>
+      </section>
+
+      <!-- 매장 요청사항 카드 -->
+      <section class="pay-card">
+        <h2 class="pay-card-title">매장 요청사항</h2>
+        <input type="text" class="request-input" placeholder="요청 사항을 입력해주세요">
+      </section>
+
+      <!-- 쿠폰 카드 -->
+      <section class="pay-card">
+        <h2 class="pay-card-title">쿠폰</h2>
+        <div class="coupon-row">
+          <div class="coupon-left">
+            <i data-lucide="ticket" class="coupon-icon"></i>
+            <span class="coupon-detail">첫 주문 할인 쿠폰</span>
+          </div>
+          <span class="coupon-price">-2,000원</span>
+        </div>
+      </section>
+
+      <!-- 결제 수단 카드 -->
+      <section class="pay-card">
+        <h2 class="pay-card-title">결제 수단</h2>
+        <div class="method-list">
+          <label class="method-item">
+            <input type="radio" name="payMethod" checked>
+            <span class="custom-radio"></span>
+            <span class="method-label active-text">신용/체크 카드</span>
+          </label>
+          <label class="method-item">
+            <input type="radio" name="payMethod">
+            <span class="custom-radio"></span>
+            <span class="method-label muted-text">네이버 페이</span>
+          </label>
+          <label class="method-item">
+            <input type="radio" name="payMethod">
+            <span class="custom-radio"></span>
+            <span class="method-label muted-text">카카오 페이</span>
+          </label>
+        </div>
+
+        <div class="method-save-box">
+          <label class="method-item">
+            <input type="checkbox" id="saveMethod">
+            <span class="custom-radio"></span>
+            <span class="method-label">선택한 결제수단을 다음에도 사용</span>
+          </label>
+        </div>
+      </section>
+
+      <!-- 결제 금액 요약 카드 -->
+      <section class="pay-card price-card">
+        <div class="price-row">
+          <span class="price-label">주문금액</span>
+          <span class="price-value">15,000원</span>
+        </div>
+        <div class="price-row">
+          <span class="price-label">쿠폰확인</span>
+          <span class="price-value">-2,000원</span>
+        </div>
+        <div class="price-total-row">
+          <span class="total-label">최종결제금액</span>
+          <span class="total-value">13,000원</span>
+        </div>
+      </section>
+
+      <!-- 이용동의 및 결제 버튼 카드 -->
+      <section class="pay-card agree-card">
+        <h2 class="pay-card-title">이용동의</h2>
+        <a href="complete.html" class="btn-pay-submit">13,000원 결제하기</a>
+      </section>
+
+    </main>
+
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+
+    const openMenuBtn = document.getElementById('openMenuBtn');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+      sideMenu.classList.add('active');
+      menuOverlay.classList.add('active');
+    }
+
+    function closeMenu() {
+      sideMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+    }
+
+    openMenuBtn.addEventListener('click', openMenu);
+    closeMenuBtn.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+  </script>
+</body>
+</html>

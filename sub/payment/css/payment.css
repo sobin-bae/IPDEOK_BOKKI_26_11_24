@@ -1,0 +1,410 @@
+@charset "UTF-8";
+
+:root {
+  --brand-red: #E53935;
+  --brand-red-dark: #C62828;
+  --brand-gold: #FFB300;
+  --brand-coral: #FF8A65;
+  --bg-cream: #FFF8F5;
+  --bg-soft: #F5F5F5;
+  --white: #FFFFFF;
+  --text-main: #1A1A1A;
+  --text-sub: #757575;
+  --border-light: #EAEAEA;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-soft);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, li {
+  list-style: none;
+}
+
+button, input {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.mobile-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: var(--white);
+  overflow-x: hidden;
+  padding-bottom: 48px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+  background-color: var(--white);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.header .logo a {
+  display: inline-flex;
+  align-items: center;
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--brand-red);
+  letter-spacing: -0.02em;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+}
+
+/* Slide Side Menu */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  background-color: rgba(26, 26, 26, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 998;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: max(0px, calc(50% - 250px));
+  width: calc(100% * 2 / 3);
+  max-width: calc(500px * 2 / 3);
+  height: 100%;
+  background-color: var(--white);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform 0.3s ease, visibility 0.3s ease;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-menu.active {
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.side-menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  background-color: var(--bg-cream);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.side-menu-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--brand-red);
+}
+
+.menu-close-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+}
+
+.side-menu-list {
+  padding: 12px 20px;
+}
+
+.side-menu-list li {
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.side-menu-list li a {
+  display: block;
+  padding: 18px 4px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+/* 결제 본문 */
+.payment-main {
+  padding: 14px 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.pay-card {
+  background-color: var(--bg-cream);
+  border: 1px solid #FFE2D8;
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.pay-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 14px;
+}
+
+/* 매장/메뉴 카드 */
+.store-card {
+  padding-top: 14px;
+}
+
+.store-name-bar {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand-red);
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid #FFE2D8;
+}
+
+.store-menu-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.store-menu-thumb {
+  width: 124px;
+  height: 124px;
+  background: linear-gradient(135deg, var(--brand-red) 0%, var(--brand-coral) 100%);
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pay-thumb-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.04em;
+}
+
+.store-menu-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 6px;
+}
+
+.store-menu-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--brand-red);
+}
+
+.store-menu-desc {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-sub);
+}
+
+/* 매장 요청사항 */
+.request-input {
+  width: 100%;
+  height: 52px;
+  padding: 0 14px;
+  border: 1px solid #E5C6BC;
+  border-radius: 10px;
+  background-color: var(--white);
+  font-size: 14px;
+  color: var(--text-main);
+  outline: none;
+}
+
+.request-input::placeholder {
+  color: var(--text-sub);
+}
+
+/* 쿠폰 */
+.coupon-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.coupon-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.coupon-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--brand-red);
+}
+
+.coupon-detail {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.coupon-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--brand-red);
+}
+
+/* 결제 수단 */
+.method-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.method-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.method-item input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.custom-radio {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid var(--brand-red);
+  background-color: var(--white);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.method-item input:checked + .custom-radio::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--brand-red);
+}
+
+.method-label {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.active-text {
+  color: var(--text-main);
+}
+
+.muted-text {
+  color: var(--text-sub);
+}
+
+.method-save-box {
+  margin-top: 16px;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 16px 20px 0;
+  border-top: 1px solid #FFE2D8;
+}
+
+/* 결제 금액 요약 */
+.price-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-main);
+}
+
+.price-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 16px 20px 0;
+  border-top: 1px solid #FFE2D8;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--brand-red);
+}
+
+/* 이용동의 및 결제 버튼 */
+.btn-pay-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 54px;
+  margin-top: 12px;
+  background-color: var(--brand-red);
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 14px;
+}
+
+.btn-pay-submit:hover {
+  background-color: var(--brand-red-dark);
+}

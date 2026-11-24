@@ -1,12 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/detail.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>상세 페이지</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/detail.css">
 </head>
 <body>
-    
+  <div class="mobile-container">
+
+    <!-- Header -->
+    <header class="header">
+      <h1 class="logo">
+        <a href="../../index.html">입덕볶이</a>
+      </h1>
+      <button type="button" class="menu-btn" id="openMenuBtn" aria-label="전체 메뉴 열기">
+        <i data-lucide="menu"></i>
+      </button>
+    </header>
+
+    <!-- Slide Side Menu -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <nav class="side-menu" id="sideMenu" aria-label="전체 메뉴">
+      <div class="side-menu-header">
+        <span class="side-menu-title">Menu</span>
+        <button type="button" class="menu-close-btn" id="closeMenuBtn" aria-label="메뉴 닫기">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <ul class="side-menu-list">
+        <li><a href="../lists/lists.html">리스트페이지</a></li>
+        <li><a href="sub/detail/detail.html">상세페이지</a></li>
+        <li><a href="../payment/payment.html">결제페이지</a></li>
+        <li><a href=../payment_finish/payment_finish.html">결제 완료</a></li>
+      </ul>
+    </nav>
+
+    <!-- 상세 상단 이미지 영역 -->
+    <section class="detail-hero">
+      <span class="detail-badge">IPDEOK SIGNATURE</span>
+      <p class="detail-hero-text">매콤달콤 특제 떡볶이 상세 안내</p>
+    </section>
+
+    <!-- 상세 타이틀 영역 -->
+    <section class="detail-body">
+      <h2 class="detail-title">메뉴 상세페이지</h2>
+    </section>
+
+  </div>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+
+    const openMenuBtn = document.getElementById('openMenuBtn');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+      sideMenu.classList.add('active');
+      menuOverlay.classList.add('active');
+    }
+
+    function closeMenu() {
+      sideMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+    }
+
+    openMenuBtn.addEventListener('click', openMenu);
+    closeMenuBtn.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+  </script>
 </body>
 </html>
